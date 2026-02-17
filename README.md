@@ -44,9 +44,8 @@ Diferente dos bots básicos, esta implementação foca em:
     npm install
 
     Inicie o bot:
-    Bash
 
-    npm start
+    npm start OU node main.js
 
     Autenticação:
     Escaneie o QR Code que aparecerá no terminal com o seu WhatsApp (Aparelhos Conectados).
