@@ -19,22 +19,8 @@ Diferente dos bots básicos, esta implementação foca em:
 
 * **Gerenciamento de Multi-Sessão:** Conexão estável que não cai ao reiniciar o servidor.
 * **Anti-Ban Engine:** Delays randômicos e simulação de digitação humana integrados.
-* **Modularização:** Sistema de comandos separado por arquivos (Clean Architecture).
 * **Auto-Reconnect:** Lógica avançada para lidar com quedas de internet e expiração de QR Code.
 
----
-
-## Estrutura do Projeto
-```text
-.
-├── src/
-│   ├── commands/      # Comandos do bot (ajuda, pix, etc)
-│   ├── utils/         # Snippets de produtividade (saudação, delay)
-│   ├── connection.js  # Lógica de conexão com Baileys
-│   └── index.js       # Ponto de entrada
-├── auth/              # Pasta onde as credenciais serão salvas
-└── package.json
-```
 
 ## Pré-requisitos
 
@@ -65,15 +51,6 @@ Diferente dos bots básicos, esta implementação foca em:
     Autenticação:
     Escaneie o QR Code que aparecerá no terminal com o seu WhatsApp (Aparelhos Conectados).
 
-## Snippets de Produtividade Inclusos
-
-Este bot já vem configurado com as funções essenciais discutidas no canal:
-
-    formatWhatsAppNumber(): Limpa e padroniza JIDs.
-
-    getGreeting(): Saudações baseadas no horário.
-
-    delay(): Pausas inteligentes entre mensagens.
 
 ## Aviso Legal
 
