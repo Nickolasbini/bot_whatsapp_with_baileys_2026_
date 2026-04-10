@@ -35,7 +35,7 @@ Diferente dos bots básicos, esta implementação foca em:
 
     Clone o repositório:
 
-    git clone [https://github.com/seu-usuario/whatsapp-bot-2026.git](https://github.com/seu-usuario/whatsapp-bot-2026.git)
+    git clone https://github.com/seu-usuario/whatsapp-bot-2026.git
 
     Instale as dependências:
     Bash
