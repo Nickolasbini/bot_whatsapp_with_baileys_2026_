@@ -10,7 +10,7 @@ Este repositório contém a estrutura base para um bot de WhatsApp de alta perfo
 
 ## Tutorial no YouTube
 Este projeto faz parte de uma série completa no canal **CódigoPráticoOficial**.
-👉 [Assista ao tutorial passo a passo]([https://www.youtube.com/@CodigoPraticoOficial](https://youtu.be/JkvbnQg2OWE)
+👉 [Assista ao tutorial passo a passo](https://youtu.be/JkvbnQg2OWE)
 
 ---
 
