@@ -4,18 +4,24 @@ import qrcode from 'qrcode-terminal';
 import axios from 'axios';
 import pino from 'pino';
 import context from './context.js';
-import { useMultiFileAuthState, makeWASocket, DisconnectReason } from '@whiskeysockets/baileys';
+import { useMultiFileAuthState, makeWASocket, DisconnectReason, fetchLatestBaileysVersion, Browsers } from '@whiskeysockets/baileys';
+import fs from 'fs';
 
 const allowedSenders = [];
 const chatHistory = {};
+const AUTH_FOLDER = 'auth_info_baileys';
 
 async function connectToWhatsApp() {
-    const { state, saveCreds } = await useMultiFileAuthState('auth_info_baileys');
+    const {version, isLatest} = await fetchLatestBaileysVersion();
+    const { state, saveCreds } = await useMultiFileAuthState(AUTH_FOLDER);
+
+    console.log(`Usando WA versão ${version.join('.')}, is latest: ${isLatest}`);
 
     const sock = makeWASocket({
+        version,
         auth: state,
         logger: pino({ level: 'silent' }),
-        browser: ['CódigoPratico', 'Chrome', '1.0.0'],
+        browser: Browsers.macOS('Desktop'),
         printQRInTerminal: false,
         markOnLine: true,
         shouldSyncHistoryMessage: () => false
@@ -32,11 +38,17 @@ async function connectToWhatsApp() {
         }
 
         if (connection === 'close') {
-            const shouldReconnect = (lastDisconnect.error instanceof Boom)?.output?.statusCode !== DisconnectReason.loggedOut;
+            const statusCode = (lastDisconnect.error instanceof Boom)?.output?.statusCode;
+            const shouldReconnect = statusCode !== DisconnectReason.loggedOut;
+
             console.log('Conexão fechada.Tentando Reconectar');
 
+            if (statusCode === DisconnectReason.loggedOut) {
+                fs.rmSync(AUTH_FOLDER, { recursive: true, force: true })
+            }
+
             if (shouldReconnect) {
-                connectToWhatsApp();
+                setTimeout(() => connectToWhatsApp(), 3000);
             }
 
         } else if(connection === 'open') {
