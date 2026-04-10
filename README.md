@@ -10,7 +10,7 @@ Este repositório contém a estrutura base para um bot de WhatsApp de alta perfo
 
 ## Tutorial no YouTube
 Este projeto faz parte de uma série completa no canal **CódigoPráticoOficial**.
-👉 [Assista ao tutorial passo a passo](https://www.youtube.com/@CodigoPraticoOficial)
+👉 [Assista ao tutorial passo a passo](https://youtu.be/JkvbnQg2OWE)
 
 ---
 
@@ -34,9 +34,8 @@ Diferente dos bots básicos, esta implementação foca em:
 
 
     Clone o repositório:
-    Bash
 
-    git clone [https://github.com/seu-usuario/whatsapp-bot-2026.git](https://github.com/seu-usuario/whatsapp-bot-2026.git)
+    git clone https://github.com/seu-usuario/whatsapp-bot-2026.git
 
     Instale as dependências:
     Bash
